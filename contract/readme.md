@@ -1,0 +1,2 @@
+hardhatone 是一个 hardhat工程
+对应的使用文件请看hardhat_contract.md

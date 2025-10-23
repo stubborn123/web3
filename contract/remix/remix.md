@@ -51,4 +51,10 @@ Solhint 列显示的是来自 Solhint 规则集（类似 ESLint for Solidity）�
 
 
 
+File
+
+artifacts 英文对应的意思人工制品，编译产物目录
+这个build-info，删掉后编译又会有
+
+scripts 自动化操作脚本（部署、交互、验证、批处理）
 
