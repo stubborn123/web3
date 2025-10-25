@@ -1,0 +1,1 @@
+describe 是Jest等JavaScript测试框架的一个核心函数，类似Java的Junit的@Test注解

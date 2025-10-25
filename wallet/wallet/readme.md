@@ -18,6 +18,15 @@ npm install -g typescript
 npm install --save-dev jest ts-jest @types/jest
 ```
 
+这里要注意最开始版本29，现在有30版本，可以直接指定jest版本
+
+Jest 29 + ts-jest 29 是经过广泛测试的稳定组合
+
+```
+npm install --save-dev jest@29 ts-jest@29 @types/jest@29
+```
+
+
 （2）调整设置jest，不如说创建或修改jest.config.js文件
 
 
@@ -38,3 +47,9 @@ PS
 
 离线签名
 解释不需要连接到网络的签名，以eth的index.ts为例，在定义参数的都没有网络对应的。只需要私钥和交易参数，整个签名的过程在本地完成。
+
+
+
+
+### 使用说明
+使用这个钱包工程，最好是用vscode打开wallet文件夹，否则执行命令的时候会用到根目录，如果是整个git目录结构的话会有一些问题。

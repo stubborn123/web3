@@ -6,12 +6,12 @@ describe('eth unit test case' , () => {
 
     test('sign', async () => {
         const rawHex = await signEthTransaction({
-            "privateKey" : "你的测试私钥",
+            "privateKey" : "测试私钥",
             "nonce" : 0,
             "from" :"0x3B29376Fa81AF52fbd90ed423aC030dafb57C7D3",
             "to":"0x7c2b26F51E44581CC1A30C6a71A800Df818383af",
             "gasLimit":"21000",
-            "amount":"0.0001",
+            "amount":"0.005",
             "gasPrice":5795962165,
             "decimal":18,
             "chainId":11155111,
@@ -25,3 +25,11 @@ describe('eth unit test case' , () => {
     });
 
 });
+
+
+
+//发送已签名的交易
+describe("eth测试已签名的交易",() => {
+
+
+})

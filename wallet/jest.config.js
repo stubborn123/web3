@@ -1,14 +1,22 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+/**
+ * Jest configuration for ESM and TypeScript
+ */
+
 export default {
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
-  transform: {
-    '^.+\.tsx?$': ['ts-jest', {
-      useESM: true
-    }]
-  },
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapping: {
     '^(\.{1,2}/.*)\.js$': '$1'
-  }
+  },
+  transform: {
+    '^.+\.tsx?$': [
+      'ts-jest',
+      {
+        useESM: true,
+        tsconfig: 'tsconfig.json'
+      }
+    ]
+  },
+  verbose: true
 };
