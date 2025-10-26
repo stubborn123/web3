@@ -46,5 +46,8 @@ npx hardhat verify --network sepolia <YOUR_CONTRACT_ADDRESS>
 
 
 (3) 注意事项
+不要暴露私钥：
 注意不要硬编码把私钥暴露出来，可以把这个.env放到忽略
 
+关于合约的重复部署：同一个合约部署多次，会返回同一个地址，因为使用Hardhat Ignition，Hardhat Ignition部署框架，状态跟踪机制
+因为Hardhat Ignition的幂等性设计即多次执行相同的部署命令产生相同的结果），检测到同名模块已经部署过，就会直接返回已存在的合约地址
