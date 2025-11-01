@@ -33,16 +33,26 @@ contract TreasureManagerScript is Script {
         theWebThreeImplementation = new FoundryOne();
         theWebThreeProxyAdmin = ProxyAdmin(getProxyAdminAddress(address(proxyTheWebThree)));
 
-        theWebThreeProxyAdmin.upgradeAndCall(
+        // theWebThreeProxyAdmin.upgradeAndCall(
+        //     ITransparentUpgradeableProxy(address(theWebThree)),
+        //     address(theWebThreeImplementation),
+        //     abi.encodeWithSelector(
+        //         FoundryOne.initialize.selector,
+        //         10e28,
+        //         msg.sender
+        //     )
+        // );
+           theWebThreeProxyAdmin.upgradeAndCall(
             ITransparentUpgradeableProxy(address(theWebThree)),
             address(theWebThreeImplementation),
             abi.encodeWithSelector(
                 FoundryOne.initialize.selector,
                 10e28,
-                msg.sender
+                deployerAddress  //使用deployerAddress作为owner
             )
         );
-        theWebThree.mint(msg.sender, 10e28);
+        //theWebThree.mint(msg.sender, 10e28);
+        theWebThree.mint(deployerAddress, 10e28);  // 使用deployerAddress调用mint
 
         vm.stopBroadcast();
     }

@@ -110,7 +110,7 @@ forge install OpenZeppelin/openzeppelin-contracts
 forge install OpenZeppelin/openzeppelin-contracts-upgradeable
 ```
 
-Remapping
+### Remapping
 Remapping文件是foundry开发框架的一个配置文件，用于定义Solidity导入路径映射关系，有了这个就不必指定完整的相对或绝对的路径。
 
 手动创建
@@ -119,3 +119,40 @@ Remapping文件的查询命令
 ```
 forge remappings 
 ```
+
+
+### 部署合约
+用于执行s.sol部署脚本，部署智能合约
+测试环境可以带私钥尝试
+ forge script ./script/FoundryOne.s.sol:TreasureManagerScript --rpc-url https://rpc.roothashpay.com --private-key 你的私钥 --broadcast
+
+
+设置环境以window为例
+ $env:PRIVATE_KEY="XXXXXXXXc"
+
+查看是否设置成功
+echo %PRIVATE_KEY%
+
+
+
+部署
+ forge script ./script/FoundryOne.s.sol:TreasureManagerScript --rpc-url https://rpc.roothashpay.com --broadcast 
+
+
+ps msg.sender 和 deployerAddress
+deployerAddress 脚本中采用通过私钥明确计算出来的部署地址
+```
+      uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        address deployerAddress = vm.addr(deployerPrivateKey);
+```
+
+验证合约
+verify 验证
+--rpc-url https://rpc.roothashpay.com                          指定连接到区块链网络RPC节点地址
+--verifier blockscout                                          指定使用区块浏览器验证服务商
+--verifier-url 'https://explorer.roothashpay.com/api/'         指定区块浏览器的 API 接口地址
+
+0x0e4B5e7c52EBB0a471716fBcc215Ef84eD752e16  部署合约地址
+./src/FounftyOne.sol:TheWebThree            指定合约文件路径和合约名称（合约文件:合约名称）
+
+forge verify-contract --rpc-url https://rpc.roothashpay.com --verifier blockscout --verifier-url 'https://explorer.roothashpay.com/api/' 0x6C780989BCe35E2667a844fEb296824c24DF83c8 ./src/FounftyOne.sol:TheWebThree 

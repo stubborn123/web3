@@ -48,6 +48,7 @@ contract FoundryOne is Initializable, ERC20Upgradeable,ERC20BurnableUpgradeable,
         _transferOwnership(_owner);
     }
 
+    //onlyOwner 修饰符 调用mint函数账户要是合约的所有者
     function mint(address _recipient, uint256 _amount) public onlyOwner {
        /* uint256 maximumMintAmount = (totalSupply() * mintCapNumerator) / MINT_CAP_DENOMINATOR;
         if (_amount > maximumMintAmount) {
